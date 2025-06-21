@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# DLVery - Intelligent Logistics Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive web-based logistics management platform designed for DLVery's expansion from Tier 1 to Tier 2 cities across India. The system provides end-to-end inventory and delivery management with real-time tracking and customer verification capabilities.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+### 📦 Inventory Management
+- Real-time inventory tracking and categorization
+- Bulk CSV import/export functionality
+- Product classification (Category, Perishable, Damaged, Expiry)
+- Smart filtering and search capabilities
+- Delivery assignment to agents
 
-### `npm start`
+### 🚚 Delivery Management
+- Role-based delivery agent interface
+- Priority-based delivery queue (Perishable → Damaged → Normal)
+- Customer signature capture for delivery verification
+- Status tracking (Pending → In Transit → Delivered/Returned)
+- Exception handling (Door Lock, Damaged, Returns)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔐 Authentication & Security
+- Multi-role access (Inventory Team, Delivery Agents)
+- Google and GitHub OAuth integration
+- Role-based permissions and access control
+- Secure data transmission and validation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📊 Reporting & Analytics
+- Delivery reports by date range
+- Damage analysis and tracking
+- Agent performance metrics
+- Inventory movement analytics
 
-### `npm test`
+## 🛠️ Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- **React 19.1.0** - Modern UI framework
+- **React Router DOM 7.6.2** - Client-side routing
+- **Firebase 11.9.1** - Authentication and real-time database
+- **React Signature Canvas** - Digital signature capture
 
-### `npm run build`
+### Backend
+- **Java 17** - High-performance middleware
+- **Maven** - Dependency management
+- **Firebase Admin SDK** - Server-side operations
+- **HTTP Server** - REST API endpoints
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Database
+- **Firebase Firestore** - NoSQL cloud database
+- **Firebase Realtime Database** - Real-time synchronization
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+dlvery/
+├── src/                          # React frontend
+│   ├── App.js                   # Main application
+│   ├── Login.js                 # Authentication
+│   ├── SignUp.js                # User registration
+│   ├── InventoryDashboard.js    # Inventory management
+│   ├── DeliveryDashboard.js     # Delivery agent interface
+│   ├── Deliveries.js            # Delivery tracking
+│   ├── About.js                 # Project information
+│   └── firebase.js              # Firebase configuration
+├── java-middleware/             # Java backend
+│   ├── src/main/java/com/team26/
+│   │   ├── App.java             # Main entry point
+│   │   └── FirebaseMiddleware.java  # REST API server
+│   └── pom.xml                  # Maven dependencies
+└── README.md                    # This file
+```
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v16 or higher)
+- Java 17 or higher
+- Maven 3.6 or higher
+- Firebase project with Firestore enabled
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend Setup
+```bash
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend Setup
+```bash
+cd java-middleware
+mvn clean compile
+mvn exec:java -Dexec.mainClass="com.team26.FirebaseMiddleware"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Firebase Configuration
+1. Create Firebase project
+2. Enable Authentication and Firestore
+3. Update `src/firebase.js` with your configuration
+4. Add service account key to `java-middleware/`
 
-## Learn More
+## 👥 User Roles
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Inventory Team (InvTeam)
+- Manage warehouse inventory
+- Assign deliveries to agents
+- Track delivery status
+- Generate reports
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Delivery Agent (DLTeam)
+- View assigned deliveries
+- Update delivery status
+- Capture customer signatures
+- Handle delivery exceptions
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## �� Key Features
 
-### Analyzing the Bundle Size
+- **Real-time Updates**: Live synchronization across all users
+- **Mobile Responsive**: Optimized for delivery agent field operations
+- **Priority Management**: Intelligent delivery prioritization
+- **Customer Verification**: Digital signature capture
+- **Exception Handling**: Comprehensive delivery status management
+- **Bulk Operations**: CSV import/export for inventory management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔒 Security
 
-### Making a Progressive Web App
+- Firebase Authentication with OAuth
+- Role-based access control
+- Input validation and sanitization
+- Secure API endpoints with CORS
+- Service account authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📱 Responsive Design
 
-### Advanced Configuration
+The application is fully responsive and optimized for:
+- Desktop computers (warehouse operations)
+- Tablets (delivery management)
+- Mobile phones (field delivery agents)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🚀 Deployment
 
-### Deployment
+### Frontend
+```bash
+npm run build
+# Deploy build folder to hosting service
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Backend
+```bash
+mvn clean package
+# Deploy JAR file to Java hosting service
+```
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
